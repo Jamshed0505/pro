@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Simple Website using Bootstrap</title>
+  <link rel="stylesheet" href="css/mystyle5.css">
+
+  <script type="text/javascript">
+    function changeBackground(){
+      var body = document.getElementById("body");
+      body.classList.toggle("changeBackground");
+    }
+  </script>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body id="body">
+
+<div class="jumbotron text-center" style="background-color: blue;">
+	<h1>Rustamov Jamshed</h1>
+	<p>This is personal web page</p>
+</div>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#gallery">Gallery</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#aboutUs">About Me</a>
+  </li>
+     <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#contacts">Contacts</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home" style="margin:30px;">
+  	<h1>Home Section</h1>
+  	<p align="center"> <img class="img5" src="img/5.jpg" alt=></p>
+    <h1 align="center"><b>Web Developer</b></h2>
+      <ul>
+        <p style="font-family:georgia,garamond,serif;font-size:40px;font-style:italic;text-align: center;">Hello! I am Rustamov Jamshed. Now I am 20 years old. I Really like making websites. Now I am studying at the University, 
+          which called Menagement Development Institute of Singapur in Tashkent. 
+          I am a year 1 student at Bangor University in the faculty of Computer Information System for Business.</p>
+      </ul>
+      <h1 align="center"><b>EDUCATION</b></h1>
+      <ul>
+  <li style="font-size: 30px">Samarkand city, Siyob district,  school Number 65 (2007-2016)</li>
+  <li> </li>
+  <li style="font-size: 30px">College of social Economics. Department of car maintenance (2016-2019)</li>
+   <li> </li>
+  <li style="font-size: 30px">Management Development Institute of Singapore in Tashkent (2019 up to now)</li>
+   <li> </li>
+ 
+</ul>
+  <h1 align="center"><b>SKILLS</b></h1>
+    <div>
+      <ul>
+  <li style="font-size: 30px">chess, football player</li>
+   <li> </li>
+  <li style="font-size: 30px">Punctual</li>
+   <li> </li>
+  <li style="font-size: 30px">Computer literacy</li>
+   <li> </li>
+  <li style="font-size: 30px">Creative</li>
+   <li> </li>
+</ul>
+</div>
+  </div>
+  <div class="tab-pane fade" id="gallery" style="margin:30px;">
+  	<h1>Gallery Section</h1>
+    <button onclick="changeBackground()">Click to Change Background</button>
+    <div id="result"></div>
+
+    <script type="text/javascript">
+  var galleryItems = '[{"URL":"./img/001.jpg","Caption":"Niagara Waterfall"},{"URL":"./img/002.jpg","Caption":"Niagara Waterfall"},{"URL":"./img/003.jpg","Caption":"Niagara Waterfall"},{"URL":"./img/004.jpg","Caption":"Amazon Waterfall"},{"URL":"./img/005.jpg","Caption":"Amazon Waterfall"},{"URL":"./img/006.jpg","Caption":"Amazon Waterfall"},{"URL":"./img/007.jpg","Caption":"Mountain"},{"URL":"./img/008.jpg","Caption":"Mountain"},{"URL":"./img/009.jpg","Caption":"Amazon Waterfall"}]';
+  var Items = JSON.parse(galleryItems);
+  console.log(Items);
+  for(var i in Items){
+    var elemGallery = document.createElement("div");
+    elemGallery.classList.add("gallery");
+    var elemA = document.createElement("a");
+    elemA.target = "_blank";
+    elemA.href = Items[i].URL;
+    var elemImg = document.createElement("img");
+    elemImg.src = Items[i].URL;
+    elemImg.alt = Items[i].Caption;
+    elemA.appendChild(elemImg);
+    var elemDescription = document.createElement("div");
+    elemDescription.classList.add("description");
+    elemDescription.innerHTML = "Image " + (+i + 1) + "<br><b>" + Items[i].Caption + "</b>";
+    elemGallery.appendChild(elemA);
+    elemGallery.appendChild(elemDescription);
+    var result = document.getElementById("result");
+    result.appendChild(elemGallery);
+    
+  }
+</script>
+  </div>
+  <div class="tab-pane fade" id="aboutUs" style="margin:30px;">
+    <h1> WORK EXPERIENCE</h1>
+    <p style="font-family:georgia,garamond,serif;font-size:40px;font-style:italic;"> I became successful businessman in my early ages. And without a doubt can say that competition breeds the best results. To be successful, you can’t be afraid to study and learn from your competitors. After all, they may be doing something right that you can implement in your business to make more money.</p>
+  <div class="row">
+    <img class="rasm" src="./img/b01.jpg">
+    <p style="font-family:georgia,garamond,serif;font-size:40px;font-style:italic;text-align: center;">Humanity is a virtue associated with basic ethics of altruism derived from the human condition. It also symbolises human love and compassion towards each other.</p>
+  </div>
+</div>
+   <div class="tab-pane fade" id="contacts" style="margin:30px;">
+   	<h1>Contacts Section</h1>
+   </div>
+
+	<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Open modal
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+    <p><b>Email:</b>Jamshedr0505@gmail.com</p>
+    <p><b>Telegram:</b>Jamshed0505</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
